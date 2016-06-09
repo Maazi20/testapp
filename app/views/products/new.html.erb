@@ -1,0 +1,28 @@
+<h1>Add a new Product</h1>
+<%= form_for @product do |f| %>
+	<p>
+	<%= f.label :name %><br />
+	<%= f.text_field :name%>
+	</p>
+	<p>
+	<%= f.label :description %><br />
+	<%= f.text_area :description%>
+	</p>
+	<p>
+	<%= f.label :price %><br />
+	<%= f.text_field :price%>
+	</p>
+	
+	<div>
+	<% Otype.all.each do |otype| %>
+	<%=  check_box_tag "product[otype_ids][]", otype.id %>
+	<%= otype.name %>
+	<% end %>
+	</div>
+	
+	<hr />
+	<%= f.submit "add a new post" %><br />
+	</p>
+<% end %>
+
+
